@@ -9,8 +9,8 @@ const CapsulesTable = ({ data, rowClick }) => {
 		<div className="flex flex-col ">
 			<div className="overflow-x-auto">
 				<div className="w-full inline-block align-middle">
-					<div className="overflow-hidden border rounded-[55px]">
-						<table className="min-w-full divide-y divide-gray-200">
+					<div className="overflow-hidden border sm:rounded-[55px] rounded-3xl">
+						<table className="min-w-full divide-y divide-gray-200 overflow-x-scroll">
 							<thead className="bg-gray-50">
 								<tr>
 									<th

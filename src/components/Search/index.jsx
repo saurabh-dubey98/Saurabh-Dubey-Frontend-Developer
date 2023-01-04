@@ -51,9 +51,9 @@ const Search = () => {
     }
 
     return (
-        <section className='rounded-full py-8 px-20 bg-white my-10 shadow-md border border-gray-200'>
+        <section className='sm:rounded-full rounded-3xl sm:py-8 py-6 sm:px-20 px-4 bg-white my-10 shadow-md border border-gray-200'>
             <form onSubmit={searchSubmitHandler}>
-                <div className='grid grid-cols-3 gap-5'>
+                <div className='grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-5 sm:gap-x-3'>
 
                     <div className='my-2 flex flex-col'>
                         <label className='uppercase font-semibold text-gray-600 text-sm pb-1 inline-block' htmlFor='type'>Type</label>

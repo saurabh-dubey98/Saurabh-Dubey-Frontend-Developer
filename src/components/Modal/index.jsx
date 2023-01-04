@@ -1,20 +1,69 @@
 import { HiArrowNarrowRight, HiXCircle } from 'react-icons/hi'
 
-const Modal = (data, isActive) => {
+const Modal = ({ data, isActive, closeModal }) => {
     return (
-        <section className={`fixed top-0 p-6 left-0 w-[80%] h-screen bg-white shadow-xl rounded-r-[80px] border border-gray-200`}>
-            <HiXCircle className='absolute top-8 right-8 w-10 h-10 text-red-500/70 hover:text-red-600 duration-200 active:text-red-700 cursor-pointer' />
+        <section className={`fixed top-0 p-6 ${isActive ? "left-0" : "-left-full"} overflow-hidden duration-200 md:w-[50%] w-full h-screen bg-white shadow-xl rounded-r-[80px] border border-gray-200`}>
+            <HiXCircle onClick={closeModal} className='absolute top-8 right-8 w-10 h-10 text-red-500/70 hover:text-red-600 duration-200 active:text-red-700 cursor-pointer' />
 
-            <div>
-                <h2 className='text-4xl font-light flex items-center gap-3'>
+            <div className='overflow-y-auto h-full '>
+                <h2 className='sm:text-4xl text-2xl font-light flex items-center gap-3'>
                     <span className='block'>
                         Capsule details
                     </span>
                     <HiArrowNarrowRight className='text-gray-600 mt-2  block' />
                 </h2>
 
-                <div>
-
+                <div className='mt-10'>
+                    <div className='my-2'>
+                        <h3 className='font-bold'>
+                            Type
+                        </h3>
+                        <p>{data?.type}</p>
+                    </div>
+                    <div className='my-2'>
+                        <h3 className='font-bold'>
+                            Status
+                        </h3>
+                        <p>{data?.status}</p>
+                    </div>
+                    <div className='my-2'>
+                        <h3 className='font-bold'>
+                            Capsule serial
+                        </h3>
+                        <p>{data?.capsule_serial}</p>
+                    </div>
+                    <div className='my-2'>
+                        <h3 className='font-bold'>
+                            Original launch unix
+                        </h3>
+                        <p>{data?.original_launch_unix}</p>
+                    </div>
+                    <div className='my-2'>
+                        <h3 className='font-bold'>
+                            No. of landing
+                        </h3>
+                        <p>{data?.landings}</p>
+                    </div>
+                    <div className='my-2'>
+                        <h3 className='font-bold'>
+                            Reuse
+                        </h3>
+                        <p>{data?.reuse_count}</p>
+                    </div>
+                    <div className='my-2'>
+                        <h3 className='font-bold'>
+                            Details
+                        </h3>
+                        <p>{data?.details}</p>
+                    </div>
+                    <div className='my-2'>
+                        <h3 className='font-bold'>
+                            Missions
+                        </h3>
+                        <p>{data?.missions?.map(item => (
+                            <span key={item?.name}>{item?.name} (Flights: {item?.flight})</span>
+                        ))}</p>
+                    </div>
                 </div>
             </div>
         </section>
