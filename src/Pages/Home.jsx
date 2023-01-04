@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div className='max-w-5xl m-auto'>
             <Header />
-            {/* <Banner /> */}
+            <Banner />
             <CapsulesProvider>
                 <Search />
                 <DataGrid />
