@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
 
+import Home from "./Pages/Home";
+// React query providers
+import { QueryClient, QueryClientProvider } from "react-query"
+import { ReactQueryDevtools } from "react-query/devtools"
+
+// Create a client for react query
+const queryClient = new QueryClient({
+	defaultOptions: {
+		queries: {
+			// It stops the refetch when switching tabs
+			refetchOnWindowFocus: false,
+		},
+	},
+})
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className='bg-gray-300 min-h-screen'>
+      <QueryClientProvider client={queryClient}>
+        <Home />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider>
+    </main>
   );
 }
 
