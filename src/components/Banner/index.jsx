@@ -1,7 +1,7 @@
 const Banner = () => {
     return (
         <>
-            <section className='sm:block hidden h-[350px] rounded-full  bg-white my-10 shadow-md  overflow-hidden'>
+            <section data-testid='banner' className='sm:block hidden h-[350px] rounded-full  bg-white my-10 shadow-md  overflow-hidden'>
                 <div className='w-full relative h-full grid grid-cols-2'>
                     <div className='w-full flex items-center justify-center'>
                         <div>

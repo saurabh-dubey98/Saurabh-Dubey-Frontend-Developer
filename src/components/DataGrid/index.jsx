@@ -12,13 +12,13 @@ const DataGrid = () => {
 
     useEffect(() => {
         if (id) refetch()
-    }, [id])
+    }, [id, refetch])
 
     return (
-        <section className='sm:rounded-[80px] rounded-3xl sm:p-8 p-2 bg-white shadow-md border border-gray-200'>
+        <section className='sm:rounded-[80px] rounded-3xl sm:p-8 sm:pt-3 p-2 bg-white shadow-md border border-gray-200'>
             <Modal data={capsuleDetails} isActive={openModal} closeModal={() => setOpenModal(false)} isLoading={isFetching} />
             {openModal && <div className="fixed top-0 left-0 w-full h-full bg-black  opacity-40 duration-500"></div>}
-
+            <h2 className='pb-3 font-normal text-gray-500   text-xl text-center'>-- All capsules --</h2>
             <RenderIf isLoading={!data || isLoading}>
 
                 <CapsulesTable data={data} rowClick={(id) => {
