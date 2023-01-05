@@ -1,6 +1,9 @@
 import { useState } from 'react'
+import { HiCheckCircle, HiMinusCircle, HiXCircle, HiStop } from 'react-icons/hi'
+import moment from 'moment'
 import { useTable } from "../../hooks/useTable"
 import TableFooter from "./TableFooter"
+import Chips from '../Chips'
 
 const CapsulesTable = ({ data, rowClick }) => {
 	const [page, setPage] = useState(1)
@@ -41,7 +44,7 @@ const CapsulesTable = ({ data, rowClick }) => {
 							</thead>
 							<tbody className="divide-y divide-gray-200">
 								{slice?.map(item => (
-									<tr onClick={() => rowClick(item?.capsule_serial)} className='cursor-pointer hover:bg-slate-200/40 duration-200 active:bg-slate-200/70'>
+									<tr key={item?.capsule_serial} onClick={() => rowClick(item?.capsule_serial)} className='cursor-pointer hover:bg-slate-200/40 duration-200 active:bg-slate-200/70'>
 										<td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
 											{item.type}
 										</td>
@@ -49,10 +52,14 @@ const CapsulesTable = ({ data, rowClick }) => {
 											{item.reuse_count}
 										</td>
 										<td className="px-6 py-4 text-sm text-gray-500 font-normal whitespace-nowrap">
-											{item.status}
+											{item?.status === 'active' && <Chips text={item?.status} Icon={HiCheckCircle} green />}
+											{item?.status === 'destroyed' && <Chips text={item?.status} Icon={HiXCircle} red />}
+											{item?.status === 'unknown' && <Chips text={item?.status} Icon={HiMinusCircle} yellow />}
+											{item?.status === 'retired' && <Chips text={item?.status} Icon={HiStop} blue />}
+
 										</td>
 										<td className="px-6 py-4 text-sm text-gray-500 font-normal whitespace-nowrap text-right">
-											{item.original_launch}
+											{moment(item?.original_launch).format('DD-M-yyyy')}
 										</td>
 									</tr>
 								))

@@ -29,7 +29,7 @@ const Search = () => {
         type: ''
     })
 
-    const { data, refetch, isFetching } = useSearchCapsules(search)
+    const { refetch, isFetching } = useSearchCapsules(search)
 
     const searchChangeHandler = (e) => {
         setSearch(prev => ({
