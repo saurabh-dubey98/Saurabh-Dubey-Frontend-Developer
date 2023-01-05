@@ -25,7 +25,7 @@ const LoadingSpinner = () => {
 const Search = () => {
     const [search, setSearch] = useState({
         status: '',
-        original_launch: '',
+        landings: '',
         type: ''
     })
 
@@ -45,7 +45,7 @@ const Search = () => {
     const resetHandler = () => {
         setSearch({
             status: '',
-            original_launch: '',
+            landings: '',
             type: ''
         })
     }
@@ -60,8 +60,8 @@ const Search = () => {
                         <input placeholder='Capsule type' className='outline-none border-[1.7px] shadow-inner border-gray-200 p-2 rounded-full focus:border-blue-500 duration-200' type='text' id='type' value={search.type} name='type' onChange={searchChangeHandler} />
                     </div>
                     <div className='my-2 flex flex-col'>
-                        <label className='font-semibold text-gray-600 text-sm pb-1 inline-block' htmlFor='original_launch'>Original launch</label>
-                        <input className='outline-none border-[1.7px] shadow-inner border-gray-200 p-2 rounded-full focus:border-blue-500 duration-200' type='date' id='original_launch' value={search.original_launch} name='original_launch' onChange={searchChangeHandler} />
+                        <label className='font-semibold text-gray-600 text-sm pb-1 inline-block' htmlFor='landings'>Landings</label>
+                        <input placeholder='Enter no. of landings' className='outline-none border-[1.7px] shadow-inner border-gray-200 p-2 rounded-full focus:border-blue-500 duration-200' type='number' id='landings' value={search.landings} name='landings' onChange={searchChangeHandler} />
                     </div>
 
                     <div className='my-2 flex flex-col'>

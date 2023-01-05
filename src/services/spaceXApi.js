@@ -11,6 +11,6 @@ export const getCapsuleDetails = async (id) => {
 }
 
 export const getCapsulesBySearch = async (data) => {
-    const res = await axios.get(`/capsules/?type=${data?.type || ''}&original_launch=${data?.original_launch || ''}&status=${data?.status || ''}`)
+    const res = await axios.get(`/capsules/?type=${data?.type || ''}&landings=${data?.landings || ''}&status=${data?.status || ''}`)
     return res.data
 }
